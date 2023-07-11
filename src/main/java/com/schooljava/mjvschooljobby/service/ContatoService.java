@@ -1,13 +1,13 @@
 package com.schooljava.mjvschooljobby.service;
 
-import com.schooljava.mjvschooljobby.repository.CadastroRepository;
+import com.schooljava.mjvschooljobby.repository.ContatoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CadastroService {
+public class ContatoService {
 
-    final CadastroRepository cadastroRepository;
+    final ContatoRepository contatoRepository;
 
 }
