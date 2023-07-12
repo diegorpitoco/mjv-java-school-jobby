@@ -1,4 +1,4 @@
-package com.schooljava.mjvschooljobby.webService;
+package com.schooljava.mjvschooljobby.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
