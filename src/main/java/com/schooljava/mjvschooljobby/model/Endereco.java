@@ -2,6 +2,7 @@ package com.schooljava.mjvschooljobby.model;
 
 public class Endereco {
 
+    private Integer idEndereco;
     private Long cep;
     private String logradouro;
     private String numero;
