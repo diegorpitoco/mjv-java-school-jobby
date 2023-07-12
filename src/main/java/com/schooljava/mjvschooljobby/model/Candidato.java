@@ -3,13 +3,12 @@ package com.schooljava.mjvschooljobby.model;
 import com.schooljava.mjvschooljobby.enums.Sexo;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
-public class Cadastro {
+public class Candidato {
 
     @Id
     private Integer idCadastro;
