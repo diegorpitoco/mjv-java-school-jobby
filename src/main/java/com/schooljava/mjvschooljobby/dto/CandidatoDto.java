@@ -7,6 +7,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Data
 public class CandidatoDto {
     private String nome;
@@ -18,4 +20,6 @@ public class CandidatoDto {
     private Profissao profissao;
     private Experiencia experiencia;
     private PretensaoSalarial pretensaoSalarial;
+    private List<Experiencia> experiencias;
+    private List<String> habilidades;
 }
