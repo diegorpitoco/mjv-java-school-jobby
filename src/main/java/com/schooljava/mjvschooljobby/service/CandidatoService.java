@@ -13,9 +13,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CandidatoService {
 
-//      final CandidatoRepository cadastroRepository;
+//     final CandidatoRepository cadastroRepository;
 //    @Autowired
 //    private  CandidadoRepository repository;
+
 //    public void gravar(CandidatoDto dto) {
 //        CandidatoEntity entity = new CandidatoEntity();
 //        BeanUtils.copyProperties(dto, entity);
