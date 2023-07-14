@@ -16,8 +16,8 @@ public class CandidatoController {
 //    @Autowired
 //    private CandidatoService candidatoService;
 //
-//    @PostMapping("/cadastrar-candidato")
-//    public Candidato cadastrarCandidato (@RequestBody Candidato candidato){
+//    @PostMapping()
+//    public Candidato cadastrarCandidato (@RequestBody CandidatoDto candidato){
 //        return candidatoService.cadastrarCandidato(candidato);
 //    }
 //
@@ -37,20 +37,22 @@ public class CandidatoController {
 //    }
 //
 //    @GetMapping("/habilidade-java")
-//    public Integer contarHabilidadeJava(){
-//        return candidatoService.contarHabilidadeJava();
+//    public List<Integer> listarComHabilidadeJava() {
+//        List<Integer> candidatosComHabilidade = candidatoService.listarComHabilidade("Java");
+//        return candidatosComHabilidade;
 //    }
 //
 //    @GetMapping("/sem-habilidades")
-//    public List<Candidato> listarCandidatosSemHabilidades(){
-//        return candidatoService.listarCandidatosSemHabilidades();
+//    public List<Integer> listarSemHabilidades() {
+//        List<Integer> candidatosSemHabilidades = candidatoService.listarSemHabilidades();
+//        return candidatosSemHabilidades;
 //    }
 //
 //    @GetMapping("/sexo-feminino-sp")
 //    public List<Candidato> listarCandidatoFemininoSP(){
 //        return candidatoService.listarCandidatoFemininoSP();
 //    }
-
+//
 //    @PostMapping()
 //    public void gravar(@RequestBody CandidatoDto candidato){
 //        service.gravar(candidado);
