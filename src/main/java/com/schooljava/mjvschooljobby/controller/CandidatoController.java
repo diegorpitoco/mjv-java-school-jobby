@@ -1,5 +1,6 @@
 package com.schooljava.mjvschooljobby.controller;
 
+import com.schooljava.mjvschooljobby.dto.CandidatoDto;
 import com.schooljava.mjvschooljobby.model.Candidato;
 import com.schooljava.mjvschooljobby.service.CandidatoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class CandidatoController {
 
 //    @Autowired
-//    CandidatoService candidatoService;
+//    private CandidatoService candidatoService;
 //
 //    @PostMapping("/cadastrar-candidato")
 //    public Candidato cadastrarCandidato (@RequestBody Candidato candidato){
@@ -48,6 +49,11 @@ public class CandidatoController {
 //    @GetMapping("/sexo-feminino-sp")
 //    public List<Candidato> listarCandidatoFemininoSP(){
 //        return candidatoService.listarCandidatoFemininoSP();
+//    }
+
+//    @PostMapping()
+//    public void gravar(@RequestBody CandidatoDto candidato){
+//        service.gravar(candidado);
 //    }
 
 }
