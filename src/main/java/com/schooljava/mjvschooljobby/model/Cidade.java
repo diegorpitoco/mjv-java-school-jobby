@@ -14,6 +14,7 @@ public class Cidade {
     @Column(nullable = false)
     private String nome;
 
+    @Column(nullable = false)
     private String estado;
 
     private String sigla;
