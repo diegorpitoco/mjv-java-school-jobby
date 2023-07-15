@@ -14,6 +14,7 @@ public class Candidato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id_cadastro")
     private Integer idCadastro;
 
@@ -30,29 +31,29 @@ public class Candidato {
     @Column(name = "sexo")
     private Sexo sexo;
 
-    @Embedded
-    private PretensaoSalarial pretensaoSalarial;
+//    @Embedded
+//    private PretensaoSalarial pretensaoSalarial;
 
-    @Embedded
-    @Column(name = "contato_id")
-    private Contato contato;
+//    @Embedded
+//    @Column(name = "contato_id")
+//    private Contato contato;
 
-    @Embedded
-    @Column(name = "endereco_id")
-    private Endereco endereco;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profissao_id")
-    private Profissao profissao;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "experiencia_id")
-    private List<Experiencia> experiencias;
-
-    @ElementCollection
-    @CollectionTable(name="tab_habilidade",
-            joinColumns=@JoinColumn(name = "cad_id", referencedColumnName = "id"))
-    @Column(name="nm_habil")
-    private List<String> habilidades;
+//    @Embedded
+//    @Column(name = "endereco_id")
+//    private Endereco endereco;
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "profissao_id")
+//    private Profissao profissao;
+//
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "experiencia_id")
+//    private List<Experiencia> experiencias;
+//
+//    @ElementCollection
+//    @CollectionTable(name="tab_habilidade",
+//            joinColumns=@JoinColumn(name = "cad_id", referencedColumnName = "id"))
+//    @Column(name="nm_habil")
+//    private List<String> habilidades;
 
 }

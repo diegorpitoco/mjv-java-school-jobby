@@ -15,11 +15,11 @@ public class CandidatoDto {
     private String cpf;
     private LocalDate dataNascimento;
     private Sexo sexo;
-    private Contato contato;
-    private Endereco endereco;
-    private Profissao profissao;
-    private Experiencia experiencia;
-    private PretensaoSalarial pretensaoSalarial;
-    private List<Experiencia> experiencias;
+//    private Contato contato;
+//    private Endereco endereco;
+//    private Profissao profissao;
+//    private Experiencia experiencia;
+//    private PretensaoSalarial pretensaoSalarial;
+//    private List<Experiencia> experiencias;
     private List<String> habilidades;
 }
