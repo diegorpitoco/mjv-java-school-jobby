@@ -12,13 +12,13 @@ import java.util.Optional;
 @RequestMapping("/candidatos")
 public class CandidatoController {
 
-//    @Autowired
-//    CandidatoService candidatoService;
-//
-//    @PostMapping("/cadastrar-candidato")
-//    public Candidato cadastrarCandidato (@RequestBody Candidato candidato){
-//        return candidatoService.cadastrarCandidato(candidato);
-//    }
+    @Autowired
+    CandidatoService candidatoService;
+
+    @PostMapping("/cadastrar-candidato")
+    public Candidato cadastrarCandidato (@RequestBody Candidato candidato){
+        return candidatoService.cadastrarCandidato(candidato);
+    }
 //
 //    @GetMapping ("/{id}")
 //    public Optional<Candidato> buscarPorId(@PathVariable Integer id){

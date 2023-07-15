@@ -1,8 +1,8 @@
-package com.schooljava.mjvschooljobby.model;
-
-public class Profissao {
-
-    private Integer idProfissao;
-    private String nome;
-
-}
+//package com.schooljava.mjvschooljobby.model;
+//
+//public class Profissao {
+//
+//    private Integer idProfissao;
+//    private String nome;
+//
+//}
