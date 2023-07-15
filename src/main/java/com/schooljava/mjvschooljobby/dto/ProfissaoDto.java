@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ProfissaoDto {
-    private Integer idProfissao;
+
     private String nome;
 
 }

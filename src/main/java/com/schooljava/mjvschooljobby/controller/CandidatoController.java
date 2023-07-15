@@ -22,11 +22,6 @@ public class CandidatoController {
         return candidatoService.cadastrarCandidato(candidato);
     }
 
-    @PostMapping
-    public ResponseEntity<Candidato> cadastrarCandidato(@RequestBody CandidatoDto candidatoDto) {
-        return ResponseEntity.ok(candidatoService.cadastrarCandidato(candidatoDto));
-    }
-
     @GetMapping ("/{id}")
     public CandidatoDto buscarPorId(@PathVariable Integer id){
         return candidatoService.buscarPorId(id);

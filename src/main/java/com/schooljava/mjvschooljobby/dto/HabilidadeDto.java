@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class HabilidadeDto {
 
-    private String habilidade;
+    private String nome;
 
 }
