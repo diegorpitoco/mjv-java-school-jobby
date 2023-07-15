@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Endereco {
 
     @Column(nullable = false)
-    private Long cep;
+    private String cep;
 
     @Column(nullable = false)
     private String logradouro;

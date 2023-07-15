@@ -5,6 +5,7 @@ import com.schooljava.mjvschooljobby.dto.CandidatoUpdateDto;
 import com.schooljava.mjvschooljobby.model.Candidato;
 import com.schooljava.mjvschooljobby.service.CandidatoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -21,19 +22,41 @@ public class CandidatoController {
         return candidatoService.cadastrarCandidato(candidato);
     }
 
+    @PostMapping
+    public ResponseEntity<Candidato> cadastrarCandidato(@RequestBody CandidatoDto candidatoDto) {
+        return ResponseEntity.ok(candidatoService.cadastrarCandidato(candidatoDto));
+    }
+
     @GetMapping ("/{id}")
     public CandidatoDto buscarPorId(@PathVariable Integer id){
         return candidatoService.buscarPorId(id);
     }
 
-//    @PatchMapping ("/{id}")
-//    public Optional<Candidato> alterarDados(@PathVariable Integer id, @RequestBody CandidatoUpdateDto candidato){
-//        return candidatoService.alterarDados(id, candidato);
-//    }
-//    @DeleteMapping ("/{id}")
-//    public void deletarDados(@PathVariable Integer id){
-//        candidatoService.deletarDados(id);
-//    }
+    @PatchMapping ("/{id}")
+    public Optional<Candidato> alterarDados(@PathVariable Integer id, @RequestBody CandidatoDto candidatoDto){
+        return candidatoService.alterarDados(id, candidato);
+    }
+    @DeleteMapping ("/{id}")
+    public void deletarDados(@PathVariable Integer id){
+        candidatoService.deletarDados(id);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //    //Contar quantos candidatos possuem a habilidade JAVA
 //    @GetMapping("/habilidade-java")
@@ -119,4 +142,4 @@ public class CandidatoController {
 //        return candidatoService.listarCandidatosProfissaoSalario();
 //    }
 
-}
+
