@@ -14,20 +14,14 @@ public class Candidato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-=======
+
     @Column(name = "id_cadastro")
->>>>>>> 5a1a9bfaf14ab0c48ca6c19c90094f99e159f62f
     private Integer idCadastro;
 
     @Column(name = "nome")
     private String nome;
-<<<<<<< HEAD
-    @Column(nullable = false)
-=======
 
     @Column(name = "cpf")
->>>>>>> 5a1a9bfaf14ab0c48ca6c19c90094f99e159f62f
     private String cpf;
 
     @Column(name = "data_nascimento")
@@ -36,44 +30,30 @@ public class Candidato {
     @Enumerated(EnumType.STRING)
     @Column(name = "sexo")
     private Sexo sexo;
-<<<<<<< HEAD
-//    @ManyToOne
-//    @JoinColumn(name = "contato_id_contato")
+
+//    @Embedded
+//    private PretensaoSalarial pretensaoSalarial;
+
+//    @Embedded
+//    @Column(name = "contato_id")
 //    private Contato contato;
-//    @ManyToOne
-//    @JoinColumn(name = "endereco_id_endereco")
+
+//    @Embedded
+//    @Column(name = "endereco_id")
 //    private Endereco endereco;
-////    private Profissao profissao;
-//    @ManyToOne
-//    @JoinColumn(name = "experiencia_id_experiencia")
-//    private Experiencia experiencia;
-////    private PretensaoSalarial pretensaoSalarial;
-=======
-
-    @Embedded
-    private PretensaoSalarial pretensaoSalarial;
->>>>>>> 5a1a9bfaf14ab0c48ca6c19c90094f99e159f62f
-
-    @Embedded
-    @Column(name = "contato_id")
-    private Contato contato;
-
-    @Embedded
-    @Column(name = "endereco_id")
-    private Endereco endereco;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profissao_id")
-    private Profissao profissao;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "experiencia_id")
-    private List<Experiencia> experiencias;
-
-    @ElementCollection
-    @CollectionTable(name="tab_habilidade",
-            joinColumns=@JoinColumn(name = "cad_id", referencedColumnName = "id"))
-    @Column(name="nm_habil")
-    private List<String> habilidades;
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "profissao_id")
+//    private Profissao profissao;
+//
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "experiencia_id")
+//    private List<Experiencia> experiencias;
+//
+//    @ElementCollection
+//    @CollectionTable(name="tab_habilidade",
+//            joinColumns=@JoinColumn(name = "cad_id", referencedColumnName = "id"))
+//    @Column(name="nm_habil")
+//    private List<String> habilidades;
 
 }
