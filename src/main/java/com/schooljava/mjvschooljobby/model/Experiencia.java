@@ -2,7 +2,7 @@ package com.schooljava.mjvschooljobby.model;
 
 import com.schooljava.mjvschooljobby.enums.RegimeContratacao;
 import lombok.Data;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 

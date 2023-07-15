@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/habilidades")
 public class HabilidadeController {
 
-    @Autowired
-    private HabilidadeService habilidadeService;
+//    @Autowired
+//    private HabilidadeService habilidadeService;
 }

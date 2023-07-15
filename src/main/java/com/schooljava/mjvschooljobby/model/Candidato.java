@@ -1,7 +1,7 @@
 package com.schooljava.mjvschooljobby.model;
 
 import com.schooljava.mjvschooljobby.enums.Sexo;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -41,7 +41,7 @@ public class Candidato {
     @Embedded
     private Endereco endereco;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profissao")
     private Profissao profissao;
 
@@ -52,7 +52,7 @@ public class Candidato {
     @JoinColumn(name = "experiencia")
     private List<Experiencia> experiencias;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ElementCollection
     @JoinColumn(name = "habilidades")
     private List<String> habilidades;
 

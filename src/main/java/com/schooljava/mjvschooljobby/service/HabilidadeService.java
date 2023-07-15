@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class HabilidadeService {
 
-    @Autowired
-    HabilidadeService habilidadeService;
+//    @Autowired
+//    HabilidadeService habilidadeService;
 }

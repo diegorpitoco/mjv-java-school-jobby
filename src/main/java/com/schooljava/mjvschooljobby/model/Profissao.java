@@ -1,9 +1,7 @@
 package com.schooljava.mjvschooljobby.model;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
+import javax.persistence.*;
 import lombok.Data;
-import lombok.Setter;
 
 @Entity
 @Data

@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/profissão")
 public class ProfissaoController {
 
-    @Autowired
-    private ProfissaoService profissaoService;
+//    @Autowired
+//    private ProfissaoService profissaoService;
 }

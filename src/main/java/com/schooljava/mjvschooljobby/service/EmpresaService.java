@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmpresaService {
 
-    @Autowired
-    EmpresaRepository empresaRepository;
+//    @Autowired
+//    EmpresaRepository empresaRepository;
 }
