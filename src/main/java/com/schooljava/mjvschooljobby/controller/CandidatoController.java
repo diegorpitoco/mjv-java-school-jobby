@@ -57,7 +57,11 @@ public class CandidatoController {
 //
 //    //Selecionar os candidatos que são do sexo FEMININO e que moram nas cidades do estado sigla SP informando o nome, cpf, dados de endereço e nome da cidade
 //    @GetMapping("/sexo-feminino-sp")
+<<<<<<< HEAD
+//    public List<CandidatoDto> listarCandidatoFemininoSP(){
+=======
 //    public List<CandidatoDto> listarCandidatoFemininoSP() {
+>>>>>>> e46a11dc5ff32db66c458ea0df59be02130152b0
 //        return candidatoService.listarCandidatoFemininoSP();
 //    }
 //
