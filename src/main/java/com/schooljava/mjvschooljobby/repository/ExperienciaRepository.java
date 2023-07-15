@@ -1,9 +1,9 @@
 package com.schooljava.mjvschooljobby.repository;
 
-import com.schooljava.mjvschooljobby.model.Contato;
+import com.schooljava.mjvschooljobby.model.Experiencia;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContatoRepository extends JpaRepository<Contato, Integer> {
+public interface ExperienciaRepository extends JpaRepository<Experiencia, Integer> {
 }

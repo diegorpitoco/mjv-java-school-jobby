@@ -5,25 +5,55 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
-@Entity
 @Data
+@Entity
+@Table(name = "candidato")
 public class Candidato {
 
     @Id
-    private Integer idCadastro;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCandidato;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false, length = 14)
     private String cpf;
+
+    @Column(nullable = false, columnDefinition = "DATE")
     private LocalDate dataNascimento;
+
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
-    @ManyToOne
-    @JoinColumn(name = "contato_id_contato")
-    private Contato contato;
+
+    @Column(nullable = false)
+    private String email;
+
+    private Long telefone;
+
+    @Column(nullable = false)
+    private Long celular;
+
+    private boolean whatsapp;
+
+    @Embedded
     private Endereco endereco;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profissao")
     private Profissao profissao;
-    private Experiencia experiencia;
+
+    @Embedded
     private PretensaoSalarial pretensaoSalarial;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "experiencia")
+    private List<Experiencia> experiencias;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "habilidades")
+    private List<String> habilidades;
 
 }
