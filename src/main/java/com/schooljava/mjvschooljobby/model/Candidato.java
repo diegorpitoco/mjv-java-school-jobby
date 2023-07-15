@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "tab_candidato")
+@Table(name = "candidato")
 public class Candidato {
 
     @Id
@@ -41,7 +41,7 @@ public class Candidato {
     @Embedded
     private Endereco endereco;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "profissao")
     private Profissao profissao;
 
