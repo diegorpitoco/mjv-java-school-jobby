@@ -47,7 +47,7 @@ public class CandidatoController {
 //    }
 //
 //    @GetMapping("/sexo-feminino-sp")
-//    public List<Candidato> listarCandidatoFemininoSP(){
+//    public List<CandidatoDto> listarCandidatoFemininoSP(){
 //        return candidatoService.listarCandidatoFemininoSP();
 //    }
 
