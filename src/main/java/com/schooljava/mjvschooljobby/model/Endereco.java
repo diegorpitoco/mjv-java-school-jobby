@@ -1,7 +1,7 @@
 package com.schooljava.mjvschooljobby.model;
 
 import lombok.Data;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Data
 @Embeddable

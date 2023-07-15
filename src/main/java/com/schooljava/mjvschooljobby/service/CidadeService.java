@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class CidadeService {
 
-    @Autowired
-    CidadeRepository cidadeRepository;
+//    @Autowired
+//    CidadeRepository cidadeRepository;
 }

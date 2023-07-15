@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/empresas")
 public class EmpresaController {
 
-    @Autowired
-    private EmpresaService empresaService;
+//    @Autowired
+//    private EmpresaService empresaService;
 }
