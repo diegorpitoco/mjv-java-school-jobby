@@ -27,15 +27,4 @@ public class CandidatoDto {
     private Experiencia experiencia;
     private PretensaoSalarial pretensaoSalarial;
 
-    public CandidatoDto(Candidato candidato) {
-        this.nome = candidato.getNome();
-        this.cpf = candidato.getCpf();
-        this.dataNascimento = candidato.getDataNascimento();
-        this.sexo = candidato.getSexo();
-        this.contato = candidato.getContato();
-        this.endereco = candidato.getEndereco();
-        this.profissao = candidato.getProfissao();
-        this.experiencia = candidato.getExperiencia();
-        this.pretensaoSalarial = candidato.getPretensaoSalarial();
-    }
 }
