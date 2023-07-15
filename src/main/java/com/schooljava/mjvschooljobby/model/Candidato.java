@@ -9,51 +9,51 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "dados_candidato")
+@Table(name = "tab_candidato")
 public class Candidato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCandidato;
 
-    @Column(name = "id_cadastro")
-    private Integer idCadastro;
-
-    @Column(name = "nome")
+    @Column(nullable = false)
     private String nome;
 
-    @Column(name = "cpf")
+    @Column(nullable = false, length = 14)
     private String cpf;
 
-    @Column(name = "data_nascimento")
+    @Column(nullable = false, columnDefinition = "DATE")
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "sexo")
     private Sexo sexo;
 
-//    @Embedded
-//    private PretensaoSalarial pretensaoSalarial;
+    @Column(nullable = false)
+    private String email;
 
-//    @Embedded
-//    @Column(name = "contato_id")
-//    private Contato contato;
+    private Long telefone;
 
-//    @Embedded
-//    @Column(name = "endereco_id")
-//    private Endereco endereco;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "profissao_id")
-//    private Profissao profissao;
-//
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "experiencia_id")
-//    private List<Experiencia> experiencias;
-//
-//    @ElementCollection
-//    @CollectionTable(name="tab_habilidade",
-//            joinColumns=@JoinColumn(name = "cad_id", referencedColumnName = "id"))
-//    @Column(name="nm_habil")
-//    private List<String> habilidades;
+    @Column(nullable = false)
+    private Long celular;
+
+    private boolean whatsapp;
+
+    @Embedded
+    private Endereco endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profissao")
+    private Profissao profissao;
+
+    @Embedded
+    private PretensaoSalarial pretensaoSalarial;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "experiencia")
+    private List<Experiencia> experiencias;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "habilidades")
+    private List<String> habilidades;
 
 }
