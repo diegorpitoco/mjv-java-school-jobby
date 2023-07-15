@@ -14,7 +14,7 @@ import java.util.Optional;
 public class CandidatoController {
 
     @Autowired
-    CandidatoService candidatoService;
+    private CandidatoService candidatoService;
 
     @PostMapping()
     public Candidato cadastrarCandidato (@RequestBody Candidato candidato){
@@ -26,10 +26,10 @@ public class CandidatoController {
         return candidatoService.buscarPorId(id);
     }
 
-    @PatchMapping ("/{id}")
-    public Optional<Candidato> alterarDados(@PathVariable Integer id, @RequestBody CandidatoUpdateDto candidato){
-        return candidatoService.alterarDados(id, candidato);
-    }
+//    @PatchMapping ("/{id}")
+//    public Optional<Candidato> alterarDados(@PathVariable Integer id, @RequestBody CandidatoUpdateDto candidato){
+//        return candidatoService.alterarDados(id, candidato);
+//    }
 //    @DeleteMapping ("/{id}")
 //    public void deletarDados(@PathVariable Integer id){
 //        candidatoService.deletarDados(id);
