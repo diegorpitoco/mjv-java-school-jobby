@@ -17,39 +17,20 @@ public class EmpresaService {
     @Autowired
     EmpresaRepository empresaRepository;
 
-    private final ModelMapper modelMapper;
-
-    public EmpresaService(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
-
     public Empresa cadastrarEmpresa(EmpresaDto empresaDto) {
         Empresa empresa = new Empresa();
         BeanUtils.copyProperties(empresaDto, empresa);
         return empresaRepository.save(empresa);
     }
 
-    public Empresa alterarEmpresa(EmpresaDto empresaDto) {
-        Empresa empresa = modelMapper.map(empresaDto, Empresa.class);
-        Optional<Empresa> optionalEmpresa = empresaRepository.findById(empresa.getIdEmpresa());
-
-        if (optionalEmpresa.isPresent()) {
-            Empresa empresaExistente = optionalEmpresa.get();
-            modelMapper.map(empresaDto, empresaExistente);
-            return empresaRepository.save(empresaExistente);
-        } else {
-            throw new IllegalArgumentException("Empresa não encontrada");
-        }
-    }
-
-    public List<Empresa> listarEmpresa() {
+    public List<Empresa> listarEmpresas() {
         return empresaRepository.findAll();
     }
     public Empresa buscarEmpresaId(Integer id) {
         return empresaRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Empresa não encontrada"));
     }
-    public boolean deletarEmrpesa(Integer id) {
+    public boolean deletarEmpresa(Integer id) {
         Optional<Empresa> optionalEmpresa = empresaRepository.findById(id);
         if (optionalEmpresa.isPresent()) {
             Empresa empresa = optionalEmpresa.get();

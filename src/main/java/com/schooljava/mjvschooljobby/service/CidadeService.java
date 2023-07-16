@@ -9,6 +9,8 @@ import com.schooljava.mjvschooljobby.repository.EmpresaRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,39 +22,20 @@ public class CidadeService {
     @Autowired
     CidadeRepository cidadeRepository;
 
-    private final ModelMapper modelMapper;
-
-    public CidadeService(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
-
     public Cidade cadastrarCidade (CidadeDto cidadeDto) {
         Cidade cidade = new Cidade();
-        BeanUtils.copyProperties(cidadeDto, cidade);
+        BeanUtils.copyProperties(cidadeDto, cidade, "id");
         return cidadeRepository.save(cidade);
     }
 
-    public Cidade alterarCidade(CidadeDto cidadeDto) {
-        Cidade cidade = modelMapper.map(cidadeDto, Cidade.class);
-        Optional<Cidade> optionalCidade = cidadeRepository.findById(cidade.getIdCidade());
-
-        if (optionalCidade.isPresent()) {
-            Cidade cidadeExistente = optionalCidade.get();
-            modelMapper.map(cidadeDto, cidadeExistente);
-            return cidadeRepository.save(cidadeExistente);
-        } else {
-            throw new IllegalArgumentException("Empresa não encontrada");
-        }
-    }
-
-    public List<Cidade> listarCidade() {
+    public List<Cidade> listarCidades() {
         return cidadeRepository.findAll();
     }
     public Cidade buscarCidadeId(Integer id) {
         return cidadeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Cidade não encontrada"));
     }
-    public boolean deletarCidadea(Integer id) {
+    public boolean deletarCidade(Integer id) {
         Optional<Cidade> optionalCidade = cidadeRepository.findById(id);
         if (optionalCidade.isPresent()) {
             Cidade cidade = optionalCidade.get();
