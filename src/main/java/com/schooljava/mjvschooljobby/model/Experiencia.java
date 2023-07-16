@@ -32,4 +32,8 @@ public class Experiencia {
     @Enumerated(EnumType.STRING)
     @Column(name = "regime_contratacao_id")
     private RegimeContratacao regimeContratacao;
+
+    @ManyToOne
+    @JoinColumn(name = "candidato_id")
+    private Candidato candidato;
 }
