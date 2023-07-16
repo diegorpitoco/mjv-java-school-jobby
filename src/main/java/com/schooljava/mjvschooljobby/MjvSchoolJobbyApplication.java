@@ -2,7 +2,7 @@ package com.schooljava.mjvschooljobby;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+//HRRegister
 @SpringBootApplication
 public class MjvSchoolJobbyApplication {
 
