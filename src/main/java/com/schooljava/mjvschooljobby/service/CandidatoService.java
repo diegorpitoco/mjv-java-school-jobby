@@ -2,7 +2,11 @@ package com.schooljava.mjvschooljobby.service;
 
 
 import com.schooljava.mjvschooljobby.model.Candidato;
+import com.schooljava.mjvschooljobby.model.Habilidade;
+import com.schooljava.mjvschooljobby.model.Profissao;
 import com.schooljava.mjvschooljobby.repository.CandidatoRepository;
+import com.schooljava.mjvschooljobby.repository.HabilidadeRepository;
+import com.schooljava.mjvschooljobby.repository.ProfissaoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.schooljava.mjvschooljobby.dto.CandidatoDto;
@@ -10,114 +14,85 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CandidatoService {
 
     private CandidatoRepository candidatoRepository;
+    private ProfissaoRepository profissaoRepository;
+    private HabilidadeRepository habilidadeRepository;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public CandidatoService(CandidatoRepository candidatoRepository, ModelMapper modelMapper) {
+    public CandidatoService(
+            CandidatoRepository candidatoRepository,
+            ProfissaoRepository profissaoRepository,
+            HabilidadeRepository habilidadeRepository,
+            ModelMapper modelMapper
+    ) {
         this.candidatoRepository = candidatoRepository;
+        this.profissaoRepository = profissaoRepository;
+        this.habilidadeRepository = habilidadeRepository;
         this.modelMapper = modelMapper;
     }
 
-    public Candidato cadastrarCandidato(CandidatoDto candidatoDto) {
-        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
-        Optional<Candidato> candidatoEncontrado = candidatoRepository.findByCpf(candidato.getCpf());
 
-        if (candidatoEncontrado.isEmpty()) {
-            candidatoRepository.save(candidato);
-        } else {
-            System.out.println("Candidato já está cadastrado");
+    public CandidatoDto cadastrarCandidato(CandidatoDto candidatoDto) {
+        Optional<Candidato> candidatoExistente = candidatoRepository.findByCpf(candidatoDto.getCpf());
+
+        if (candidatoExistente.isPresent()) {
+            throw new IllegalArgumentException("Candidato já está cadastrado");
         }
-        return candidato;
+
+        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
+        Profissao profissao = profissaoRepository.findById(candidatoDto.getProfissaoId())
+                .orElseThrow(() -> new IllegalArgumentException("Profissão não encontrada"));
+
+        candidato.setProfissao(profissao);
+        Candidato novoCandidato = candidatoRepository.save(candidato);
+
+        CandidatoDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoDto.class);
+        return novoCandidatoDto;
     }
 
-    public Candidato alterarCandidato(CandidatoDto candidatoDto) {
-        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
-        Optional<Candidato> optionalCandidato = candidatoRepository.findById(candidato.getIdCandidato());
+    public CandidatoDto alterarCandidato(Integer id, CandidatoDto candidatoDto) {
+        Optional<Candidato> optionalCandidato = candidatoRepository.findById(id);
 
-        if (optionalCandidato.isPresent()) {
-            Candidato candidatoExistente = optionalCandidato.get();
-            modelMapper.map(candidatoDto, candidatoExistente); // Realiza o mapeamento automático dos atributos
-            return candidatoRepository.save(candidatoExistente);
-        } else {
+        if (optionalCandidato.isEmpty()) {
             throw new IllegalArgumentException("Candidato não encontrado");
         }
+
+        Candidato candidatoExistente = optionalCandidato.get();
+        modelMapper.map(candidatoDto, candidatoExistente);
+
+        Candidato candidatoAtualizado = candidatoRepository.save(candidatoExistente);
+        return modelMapper.map(candidatoAtualizado, CandidatoDto.class);
+    }
+
+    public List<CandidatoDto> listarCandidatos() {
+        List<Candidato> candidatos = candidatoRepository.findAll();
+        return candidatos.stream()
+                .map(candidato -> modelMapper.map(candidato, CandidatoDto.class))
+                .collect(Collectors.toList());
     }
 
     public List<Candidato> listarCandidato() {
         return candidatoRepository.findAll();
     }
-    public Candidato buscarCandidatoId(Integer id) {
-        return candidatoRepository.findById(id)
+
+
+    public CandidatoDto buscarCandidatoPorId(Integer id) {
+        Candidato candidato = candidatoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Candidato não encontrado"));
+
+        return modelMapper.map(candidato, CandidatoDto.class);
     }
-    public boolean deletarCandidato(Integer id) {
-        Optional<Candidato> optionalCandidato = candidatoRepository.findById(id);
-        if (optionalCandidato.isPresent()) {
-            Candidato candidato = optionalCandidato.get();
-            candidatoRepository.delete(candidato);
-            return true;
-        }
-        return false;
+
+    public void deletarCandidato(Integer id) {
+        Candidato candidato = candidatoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Candidato não encontrado"));
+
+        candidatoRepository.delete(candidato);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public Candidato cadastrarCandidato(Candidato candidato){
-//
-//        Optional<Candidato> candidatoEncontrado = candidatoRepository.findByCpf(candidato.getCpf());
-//
-//        if(candidatoEncontrado.isEmpty()){
-//            candidatoRepository.save(candidato);
-//        }else{
-//            System.out.println("Candidato jé está cadastrado");
-//        }
-//        return candidato;
-//    }
-//
-//    public CandidatoDto buscarPorId(Integer id){
-//
-//        CandidatoDto candidatoRetornado = new CandidatoDto();
-//        Candidato candidatoRegistrado = candidatoRepository.findById(id).get();
-//        BeanUtils.copyProperties(candidatoRegistrado, candidatoRetornado);
-//
-//        return candidatoRetornado;
-//    }
-
-    //ainda não consegui fazer funcionar
-//    public Optional<Candidato> alterarDados(Integer id, CandidatoUpdateDto candidato){
-//
-//        Optional<Candidato> candidatoRegistrado = Optional.of(candidatoRepository.findById(id).get());
-//
-//        if(candidatoRegistrado.isEmpty()){
-//            System.out.println("Candidato não encontrado no sistema");
-//        }else{
-//
-//        }
-//        return candidatoRegistrado;
-//    }
-
-
-
-
