@@ -4,7 +4,7 @@ E como mentor do nosso Projeto tivemos o Professor [Gleydson](https://www.linked
 
 # HR Resources Soluções Tecnológicas </br> 
 
-Somos uma empresa de tecnologia voltada a soluções para o processo de Recutamento e Seleção de Profissionais de TI. Segue os componestes do nosso time Incrível de desenvolvedores.</br> 
+Somos uma empresa de tecnologia voltada a soluções para o processo de Recutamento e Seleção de Profissionais de TI. Segue os componestes do nosso time incrível de desenvolvedores.</br> 
 [Alane Kerolaine](https://www.linkedin.com/in/alane-kerolaine-g-l-carvalho/ "Linkedin") </br>
 [Diego Pitoco](https://www.linkedin.com/in/diego-reis-pitoco-9a971380/ "Linkedin") </br>
 [Emerson Luiz](https://www.linkedin.com/in/emerson-luiz-e8t18/ "Linkedin") </br>
@@ -45,7 +45,9 @@ Este projeto contempla a elaboração de um programa simples onde é possível q
 # Especificações
 Dos requisitos apresentados à nossa fábrica, a mais relevante foi a necessidade de normalizar o nosso modelo de dados que antes continha uma estrutura de registros com informações redundantes e com crescimento exponencial da sua necessidade de armazenamento dos dados.
 
-<img src="https://sintaxe.netlify.app/assets/cadastro_v2.bb266c22.jpg" width="500" />
+
+
+<img src="https://github.com/emerge8/assets/blob/main/hrregister.png?raw=true" width="500" />
 
 <b>1.</b> Remodelar toda a estrutura de banco de forma que atenda o diagrama apresentado acima</br>
 <b>2.</b> Realizar cadastros prévios para a inserção dos candidatos como: Profissões, Cidades e Empresas</br>
@@ -78,9 +80,20 @@ Dentre as novas funcionalidades que serão disponibilizadas pela plataforma, des
 <b>4.</b> Upload e exibição da foto do perfil do candidato</br>
 <b>5.</b> Consulta de informações estratégicas dos candidatos</br>
 
+# Swagger
 
+Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
 
+Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
 
+Abaixo segue um pequeno vídeo da nossa api sendo utilizada no Swagger.
 
+![Web 1](https://github.com/emerge8/assets/blob/main/testeSwagger.gif)
 
-
+# Tecnologias Utilizadas
+ 
+- Java Development Kit (JDK) 19
+- Spring Boot 2.7.13
+- MySql
+- Postman
+- Swagger V3
