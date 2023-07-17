@@ -11,5 +11,5 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idEmpresa;
 
-    private String nomeEmpresa;
+    private String nome;
 }
