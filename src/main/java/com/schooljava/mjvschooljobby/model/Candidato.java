@@ -16,44 +16,50 @@ public class Candidato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCandidato;
 
-    @Column(nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(nullable = false, length = 14)
+    @Column(name = "cpf", nullable = false, length = 14)
     private String cpf;
 
-    @Column(nullable = false, columnDefinition = "DATE")
+    @Column(name = "dataNascimento", nullable = false, columnDefinition = "DATE")
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "sexo")
     private Sexo sexo;
 
-    @Column(nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "telefone")
     private Long telefone;
 
-    @Column(nullable = false)
+    @Column(name = "celular", nullable = false)
     private Long celular;
 
+    @Column(name = "whatsapp")
     private boolean whatsapp;
 
     @Embedded
     private Endereco endereco;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profissao")
+    @ManyToOne
+    @JoinColumn(name = "Id_profissao")
     private Profissao profissao;
 
     @Embedded
     private PretensaoSalarial pretensaoSalarial;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "experiencia")
+    @OneToMany(mappedBy = "candidato")
     private List<Experiencia> experiencias;
 
-    @ElementCollection
-    @JoinColumn(name = "habilidades")
-    private List<String> habilidades;
+    @ManyToMany
+    @JoinTable(
+            name = "candidato_habilidade",
+            joinColumns = @JoinColumn(name = "candidato_id"),
+            inverseJoinColumns = @JoinColumn(name = "habilidade_id")
+    )
+    private List<Habilidade> habilidades;
 
 }

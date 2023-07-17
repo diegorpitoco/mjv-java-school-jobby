@@ -19,9 +19,10 @@ public class CandidatoDto {
         private Long celular;
         private Boolean whatsapp;
         private EnderecoDto endereco;
-        private ProfissaoDto profissao;
+        private Integer profissaoId;
         private PretensaoSalarialDto pretensaoSalarial;
         private List<ExperienciaDto> experiencias = new ArrayList<>();
-        private List<HabilidadeDto> habilidades = new ArrayList<>();
+        private List<Integer> habilidades = new ArrayList<>();
+
     }
 
