@@ -11,7 +11,7 @@ public class Habilidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idHabilidade;
 
     private String nome;
 

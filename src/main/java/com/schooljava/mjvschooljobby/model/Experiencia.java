@@ -27,7 +27,7 @@ public class Experiencia {
     private LocalDate dataDesligamento;
 
     @ManyToOne
-    @JoinColumn(name = "id_empresa")
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +35,6 @@ public class Experiencia {
     private RegimeContratacao regimeContratacao;
 
     @ManyToOne
-    @JoinColumn(name = "id_candidato")
+    @JoinColumn(name = "candidato_id")
     private Candidato candidato;
 }

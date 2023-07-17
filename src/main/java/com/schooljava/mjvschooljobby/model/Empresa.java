@@ -9,7 +9,7 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer idEmpresa;
 
     private String nome;
 }
