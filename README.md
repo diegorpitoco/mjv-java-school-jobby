@@ -75,13 +75,12 @@ Dentre as novas funcionalidades que serão disponibilizadas pela plataforma, des
 <b>1.</b> Cadastro do candidato de forma online e em tempo real</br>
 <b>2.</b> Consulta dos candidatos existentes na base de dados</br>
 <b>3.</b> Consulta dos candidatos considerando critérios de busca</br>
-<b>.</b> Consulta de informações estratégicas dos candidatos</br>
+<b>4.</b> Consulta de informações estratégicas dos candidatos</br>
 
 # Swagger
 
 Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
 
-Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
 
 Abaixo segue um pequeno vídeo da nossa api sendo utilizada no Swagger.
 
