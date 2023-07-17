@@ -1,29 +1,34 @@
-# O Projeto Final Do BootCamp realizado Pela [MJVSchool](https://academy.mjvinnovation.com/br/mjvschool/ "Site da MJV").
+# O Projeto Final Do Bootcamp realizado Pela [MJVSchool](https://academy.mjvinnovation.com/br/mjvschool/ "Site da MJV").
 
 E como mentor do nosso Projeto tivemos o Professor [Gleydson](https://www.linkedin.com/in/glysns/ "Linkdin").
 
-# Integrantes do Grupo: </br> 
-[Alane Kerolaine](https://www.linkedin.com/in/alane-kerolaine-g-l-carvalho/ "Linkdin") </br>
-[Diego Pitoco](https://www.linkedin.com/in/diego-reis-pitoco-9a971380/ "Linkdin") </br>
-[Emerson Luiz](https://www.linkedin.com/in/emerson-luiz-e8t18/ "Linkdin") </br>
-[Estefania Carrer](https://www.linkedin.com/in/estefania-carrer-49659110a/ "Linkdin") </br>
-[Ismael Miranda](https://www.linkedin.com/in/mirandaismael/ "Linkdin") </br>
+# HR Resources Soluções Tecnológicas </br> 
+
+Somos uma empresa de tecnologia voltada a soluções para o processo de Recutamento e Seleção de Profissionais de TI. Segue os componestes do nosso time Incrível de desenvolvedores.</br> 
+[Alane Kerolaine](https://www.linkedin.com/in/alane-kerolaine-g-l-carvalho/ "Linkedin") </br>
+[Diego Pitoco](https://www.linkedin.com/in/diego-reis-pitoco-9a971380/ "Linkedin") </br>
+[Emerson Luiz](https://www.linkedin.com/in/emerson-luiz-e8t18/ "Linkedin") </br>
+[Estefania Carrer](https://www.linkedin.com/in/estefania-carrer-49659110a/ "Linkedin") </br>
+[Ismael Miranda](https://www.linkedin.com/in/mirandaismael/ "Linkedin") </br>
+
+# Modernização
+Nos ultimos anos o processo de recrutamento e seleção aplicados pela empresa People Job conseguiu chegar a um nível de eficiência reconhecido no mercado, e algumas ações de modernização começavam a se tornar essencias para manter o nível dos resultados apresentados.
+
+Foi ai que os gestores da empresa decidiriam investir em modernização da sua plataforma Jobby e claro, a HR foi convidada para conduzir este projeto.
+
+<img src="https://sintaxe.netlify.app/assets/refactoring.bd0b51f1.jpg" width="500" />
+
 
 # Jobby - Ao seu dispor #
 
-Este projeto consiste uma plataforma destinada ao armazenamento de dados pessoais e profissionais para em seguida proporcionar uma listagem de profissionais, suas experiências e habilidades destinadas para auxilar no processo de recrutamento e seleção de uma empresa de tecnologia.
+Este projeto consiste uma plataforma destinada ao armazenamento de dados pessoais e profissionais para em seguida proporcionar uma listagem de profissionais, suas experiências e habilidades destinadas para auxilar no processo de recrutamento e seleção da empresa People Job.
 
  <img src="https://sintaxe.netlify.app/assets/aproposta-2.78be4362.jpg" width="500" />
 
-# Fases do desenvolvimento
-Sabemos que hoje estamos vivendo a era da alta tecnologia, plataformas na nuvem, microsserviços e aplicações web integradas a APIs Rest transportando JSONs através de protocolos HTTP e HTTPs. Mas nem sempre foi assim e principalmente, ainda precisamos manter funcional aplicações já desenvolvidas.
-
-Diante das inúmeras possibilidades e cenários nos projetos empresariais, iremos distribuir nosso desafio em etapas consideradas retrospectivas até evoluirmos a aplicação com abordagens mais modernas garantindo assim, uma jornada consistente e evolutiva de aprendizagem.
 
 # Lógica
-Estamos em 1950 em que a tecnologia ainda era algo futurista, mas que já apresentava no mercado linguagens de programação capazes de automatizar processos através da computação. Nesta época, banco de dados relacionais ainda não era tão comum de ser ver. E foi neste cenário "limitado" que nossa empresa Digytal recebeu sua primeira demanda como fábrica de softwares de desenvolver uma solução capaz de permitir que pessoas elaborassem o seu currículo vitae para que pudessem enviar via e-mail e estar disponível em banco de dados centralizado de uma das maiores empresas de recrutamento e seleção de profissionais de TI conhecida como People Job.
 
-O escopo inicial do projeto contempla a elaboração de um programa simples onde é possível que o candidato preencha via console seus dados pessoais, endereço, contato e experiência profissional mencionando uma faixa salarial pretendida. Este registro deverá ser coletado pelo sistema e gerar dois arquivos com os layouts delimitado e posicional respectivamente considerando as informações abaixo.
+Este projeto contempla a elaboração de um programa simples onde é possível que o candidato preencha seus dados pessoais, endereço, contato e experiência profissional mencionando uma faixa salarial pretendida. Abaixo seguem as informações que serão preenchidas pelo candidato:
 
 🔵Dados Pessoais: Nome, CPF, Data Nascimento, Sexo</br>
 🔵Dados Endereço: Logradouro, Número, Complemento, Bairro, Cidade, Estado</br>
@@ -35,13 +40,7 @@ O escopo inicial do projeto contempla a elaboração de um programa simples onde
  <img src="https://sintaxe.netlify.app/assets/cadastro-v1.b270b4df.png" width="500" />
 
 
-# Modernização
-Nos ultimos anos o processo de recrutamento e seleção aplicados pela empresa People Job conseguiu chegar a um nível de eficiência reconhecido no mercado, e algumas ações de modernização começavam a se tornar essencias para manter o nível dos resultados apresentados.
 
-Foi ai que os gestores da empresa decidiriam investir em modernização da sua plataforma Jobby e claro, a Digytal foi a fábrica de software convidada para conduzir este projeto.
-Na Digytal os responsáveis pelo projeto foi o time composto por <strong>Alane, Diego, Emerson, Estefania e Ismael </strong> .
-
-<img src="https://sintaxe.netlify.app/assets/refactoring.bd0b51f1.jpg" width="500" />
 
 # Especificações
 Dos requisitos apresentados à nossa fábrica, a mais relevante foi a necessidade de normalizar o nosso modelo de dados que antes continha uma estrutura de registros com informações redundantes e com crescimento exponencial da sua necessidade de armazenamento dos dados.
