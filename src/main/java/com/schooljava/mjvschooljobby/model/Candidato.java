@@ -45,7 +45,7 @@ public class Candidato {
     private Endereco endereco;
 
     @ManyToOne
-    @JoinColumn(name = "Id_profissao")
+    @JoinColumn(name = "profissao_id")
     private Profissao profissao;
 
     @Embedded
