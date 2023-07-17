@@ -10,6 +10,6 @@ public class EnderecoDto {
     private String numero;
     private String complemento;
     private String bairro;
-    private CidadeDto cidade;
+    private Integer cidade;
 
 }

@@ -51,6 +51,7 @@ public class Candidato {
     @Embedded
     private PretensaoSalarial pretensaoSalarial;
 
+
     @OneToMany(mappedBy = "candidato")
     private List<Experiencia> experiencias;
 

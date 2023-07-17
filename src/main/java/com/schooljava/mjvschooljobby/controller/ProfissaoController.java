@@ -20,31 +20,31 @@ public class ProfissaoController {
         this.profissaoService = profissaoService;
     }
 
-    @PostMapping("/novo")
+    @PostMapping("/nova-profissao")
     public ResponseEntity<ProfissaoDto> cadastrarProfissao(@RequestBody ProfissaoDto profissaoDto) {
         ProfissaoDto novaProfissao = profissaoService.cadastrarProfissao(profissaoDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(novaProfissao);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/editar-profissao/{id}")
     public ResponseEntity<ProfissaoDto> alterarProfissao(@PathVariable Integer id, @RequestBody ProfissaoDto profissaoDto) {
         ProfissaoDto profissaoAlterada = profissaoService.alterarProfissao(id, profissaoDto);
         return ResponseEntity.ok(profissaoAlterada);
     }
 
-    @GetMapping("/lista-profissoes")
+    @GetMapping("/listar-profissoes")
     public ResponseEntity<List<ProfissaoDto>> listarProfissoes() {
         List<ProfissaoDto> profissoes = profissaoService.listarProfissoes();
         return ResponseEntity.ok(profissoes);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar-profissao/{id}")
     public ResponseEntity<ProfissaoDto> buscarProfissaoPorId(@PathVariable Integer id) {
         ProfissaoDto profissao = profissaoService.buscarProfissaoPorId(id);
         return ResponseEntity.ok(profissao);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar-profissao/{id}")
     public ResponseEntity<Void> deletarProfissao(@PathVariable Integer id) {
         profissaoService.deletarProfissao(id);
         return ResponseEntity.noContent().build();

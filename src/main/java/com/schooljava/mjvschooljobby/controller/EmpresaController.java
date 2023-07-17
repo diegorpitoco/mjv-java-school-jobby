@@ -1,8 +1,6 @@
 package com.schooljava.mjvschooljobby.controller;
 
-import com.schooljava.mjvschooljobby.dto.CidadeDto;
 import com.schooljava.mjvschooljobby.dto.EmpresaDto;
-import com.schooljava.mjvschooljobby.model.Cidade;
 import com.schooljava.mjvschooljobby.model.Empresa;
 import com.schooljava.mjvschooljobby.service.CandidatoService;
 import com.schooljava.mjvschooljobby.service.EmpresaService;
@@ -17,21 +15,27 @@ import java.util.List;
 @RequestMapping("/empresas")
 public class EmpresaController {
 
-    @Autowired
     private EmpresaService empresaService;
 
-    @PostMapping("/nova")
+    @Autowired
+    public EmpresaController(EmpresaService empresaService) {
+        this.empresaService = empresaService;
+    }
+    @PostMapping("/nova-empresa")
     public ResponseEntity<EmpresaDto> cadastrarEmpresa (@RequestBody EmpresaDto empresaDto) {
         return ResponseEntity.ok(empresaService.cadastrarEmpresa(empresaDto));
     }
-    @GetMapping("/buscar-empresa/{id}")
-    public ResponseEntity<Empresa> buscarEmpresa(@PathVariable Integer id){
-        return ResponseEntity.ok(empresaService.buscarEmpresaId(id));
-    }
 
     @GetMapping("/listar-empresas")
-    public ResponseEntity<List<Empresa>> listarEmpresas() {
-        return ResponseEntity.ok(empresaService.listarEmpresas());
+    public ResponseEntity<List<EmpresaDto>> listarEmpresas() {
+        List<EmpresaDto> empresasDto = empresaService.listarEmpresas();
+        return ResponseEntity.ok(empresasDto);
+    }
+
+    @GetMapping("/buscar-empresa/{id}")
+    public ResponseEntity<EmpresaDto> buscarEmpresaId(@PathVariable Integer id){
+        EmpresaDto empresaDto = empresaService.buscarEmpresaId(id);
+        return ResponseEntity.ok(empresaDto);
     }
 
     @DeleteMapping("/deletar-empresa/{id}")

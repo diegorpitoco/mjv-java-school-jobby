@@ -6,8 +6,10 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class ExperienciaDto {
+public class ExperienciaDtoModif {
 
+    private Integer idExperiencia;
+    private Integer idCandidato;
     private double salario;
     private boolean empregoAtual;
     private LocalDate dataContratacao;

@@ -26,7 +26,7 @@ public class Experiencia {
     @Column(columnDefinition = "DATE")
     private LocalDate dataDesligamento;
 
-    @ManyToOne
+    @ManyToOne//(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
