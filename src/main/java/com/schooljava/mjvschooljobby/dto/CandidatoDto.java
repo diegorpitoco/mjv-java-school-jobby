@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 public class CandidatoDto {
 
+        private Integer idCandidato;
         private String nome;
         private String cpf;
         private LocalDate dataNascimento;

@@ -8,6 +8,7 @@ import com.schooljava.mjvschooljobby.repository.CidadeRepository;
 import com.schooljava.mjvschooljobby.repository.HabilidadeRepository;
 import com.schooljava.mjvschooljobby.repository.ProfissaoRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.schooljava.mjvschooljobby.dto.CandidatoDto;
 import org.springframework.stereotype.Service;
@@ -87,6 +88,7 @@ public class CandidatoService {
         CandidatoDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoDto.class);
         return novoCandidatoDto;
     }
+
 
     public CandidatoDto alterarCandidato(Integer id, CandidatoDto candidatoDto) {
         Optional<Candidato> optionalCandidato = candidatoRepository.findById(id);
