@@ -10,46 +10,38 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpresaService {
 
+    private EmpresaRepository empresaRepository;
+    private ModelMapper modelMapper;
+
     @Autowired
-    EmpresaRepository empresaRepository;
-
-    private final ModelMapper modelMapper;
-
-    public EmpresaService(ModelMapper modelMapper) {
+    public EmpresaService(EmpresaRepository empresaRepository, ModelMapper modelMapper) {
+        this.empresaRepository = empresaRepository;
         this.modelMapper = modelMapper;
     }
 
-    public Empresa cadastrarEmpresa(EmpresaDto empresaDto) {
-        Empresa empresa = new Empresa();
-        BeanUtils.copyProperties(empresaDto, empresa);
-        return empresaRepository.save(empresa);
-    }
-
-    public Empresa alterarEmpresa(EmpresaDto empresaDto) {
+    public EmpresaDto cadastrarEmpresa(EmpresaDto empresaDto) {
         Empresa empresa = modelMapper.map(empresaDto, Empresa.class);
-        Optional<Empresa> optionalEmpresa = empresaRepository.findById(empresa.getIdEmpresa());
-
-        if (optionalEmpresa.isPresent()) {
-            Empresa empresaExistente = optionalEmpresa.get();
-            modelMapper.map(empresaDto, empresaExistente);
-            return empresaRepository.save(empresaExistente);
-        } else {
-            throw new IllegalArgumentException("Empresa não encontrada");
-        }
+        Empresa novaEmpresa = empresaRepository.save(empresa);
+        return modelMapper.map(novaEmpresa, EmpresaDto.class);
     }
 
-    public List<Empresa> listarEmpresa() {
-        return empresaRepository.findAll();
+    public List<EmpresaDto> listarEmpresas() {
+        List<Empresa> empresas = empresaRepository.findAll();
+        return empresas.stream()
+                .map(empresa -> modelMapper.map(empresa, EmpresaDto.class))
+                .collect(Collectors.toList());
     }
-    public Empresa buscarEmpresaId(Integer id) {
-        return empresaRepository.findById(id)
+    public EmpresaDto buscarEmpresaId(Integer id) {
+        Empresa empresa = empresaRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Empresa não encontrada"));
+        return modelMapper.map(empresa, EmpresaDto.class);
     }
-    public boolean deletarEmrpesa(Integer id) {
+    public boolean deletarEmpresa(Integer id) {
         Optional<Empresa> optionalEmpresa = empresaRepository.findById(id);
         if (optionalEmpresa.isPresent()) {
             Empresa empresa = optionalEmpresa.get();

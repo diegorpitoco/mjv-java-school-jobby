@@ -11,10 +11,8 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCidade;
 
-    @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
     private String estado;
 
     private String sigla;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class CandidatoDto {
+public class CandidatoCadastroDto {
 
         private Integer idCandidato;
         private String nome;
@@ -22,7 +22,6 @@ public class CandidatoDto {
         private EnderecoDto endereco;
         private Integer profissaoId;
         private PretensaoSalarialDto pretensaoSalarial;
-        private List<ExperienciaDto> experiencias = new ArrayList<>();
         private List<Integer> habilidades = new ArrayList<>();
 
     }

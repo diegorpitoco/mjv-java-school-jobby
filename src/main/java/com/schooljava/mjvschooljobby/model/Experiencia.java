@@ -26,10 +26,15 @@ public class Experiencia {
     @Column(columnDefinition = "DATE")
     private LocalDate dataDesligamento;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "regime_contratacao_id")
+    @Column(name = "regimeContratacao")
     private RegimeContratacao regimeContratacao;
+
+    @ManyToOne
+    @JoinColumn(name = "candidato_id")
+    private Candidato candidato;
 }

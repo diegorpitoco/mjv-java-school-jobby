@@ -19,7 +19,8 @@ public class Endereco {
 
     private String bairro;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cidade_id")
     private Cidade cidade;
 
 

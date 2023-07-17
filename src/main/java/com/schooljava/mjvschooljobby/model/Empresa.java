@@ -8,8 +8,8 @@ import lombok.Data;
 public class Empresa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmpresa;
 
-    private String nomeEmpresa;
+    private String nome;
 }
