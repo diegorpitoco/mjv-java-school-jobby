@@ -22,10 +22,11 @@ public class CidadeService {
     @Autowired
     CidadeRepository cidadeRepository;
 
-    public Cidade cadastrarCidade (CidadeDto cidadeDto) {
+    public CidadeDto cadastrarCidade (CidadeDto cidadeDto) {
         Cidade cidade = new Cidade();
         BeanUtils.copyProperties(cidadeDto, cidade, "id");
-        return cidadeRepository.save(cidade);
+        cidadeRepository.save(cidade);
+        return cidadeDto;
     }
 
     public List<Cidade> listarCidades() {

@@ -21,7 +21,7 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     @PostMapping("/nova")
-    public ResponseEntity<Empresa> cadastrarEmpresa (@RequestBody EmpresaDto empresaDto) {
+    public ResponseEntity<EmpresaDto> cadastrarEmpresa (@RequestBody EmpresaDto empresaDto) {
         return ResponseEntity.ok(empresaService.cadastrarEmpresa(empresaDto));
     }
     @GetMapping("/buscar-empresa/{id}")

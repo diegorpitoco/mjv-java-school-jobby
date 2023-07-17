@@ -21,7 +21,7 @@ public class CidadeController {
     private CidadeService cidadeService;
 
     @PostMapping("/nova")
-    public ResponseEntity<Cidade> cadastrarCidade (@RequestBody CidadeDto cidadeDto) {
+    public ResponseEntity<CidadeDto> cadastrarCidade (@RequestBody CidadeDto cidadeDto) {
         return ResponseEntity.ok(cidadeService.cadastrarCidade(cidadeDto));
     }
     @GetMapping("/buscar-cidade/{id}")

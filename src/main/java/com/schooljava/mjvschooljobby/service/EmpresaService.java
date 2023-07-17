@@ -17,10 +17,11 @@ public class EmpresaService {
     @Autowired
     EmpresaRepository empresaRepository;
 
-    public Empresa cadastrarEmpresa(EmpresaDto empresaDto) {
+    public EmpresaDto cadastrarEmpresa(EmpresaDto empresaDto) {
         Empresa empresa = new Empresa();
-        BeanUtils.copyProperties(empresaDto, empresa);
-        return empresaRepository.save(empresa);
+        BeanUtils.copyProperties(empresaDto, empresa, "id");
+        empresaRepository.save(empresa);
+        return empresaDto;
     }
 
     public List<Empresa> listarEmpresas() {
