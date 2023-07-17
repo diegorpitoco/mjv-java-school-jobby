@@ -1,7 +1,13 @@
 package com.schooljava.mjvschooljobby.service;
 
 import com.schooljava.mjvschooljobby.dto.ExperienciaDto;
+import com.schooljava.mjvschooljobby.dto.EmpresaDto;
+import com.schooljava.mjvschooljobby.dto.ExperienciaDtoModif;
+import com.schooljava.mjvschooljobby.model.Candidato;
+import com.schooljava.mjvschooljobby.model.Empresa;
 import com.schooljava.mjvschooljobby.model.Experiencia;
+import com.schooljava.mjvschooljobby.repository.CandidatoRepository;
+import com.schooljava.mjvschooljobby.repository.EmpresaRepository;
 import com.schooljava.mjvschooljobby.repository.ExperienciaRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +21,33 @@ import java.util.stream.Collectors;
 public class ExperienciaService {
     private ExperienciaRepository experienciaRepository;
     private ModelMapper modelMapper;
+    private EmpresaRepository empresaRepository;
+    private CandidatoRepository candidatoRepository;
 
     @Autowired
-    public ExperienciaService(ExperienciaRepository experienciaRepository, ModelMapper modelMapper) {
+    public ExperienciaService(ExperienciaRepository experienciaRepository, ModelMapper modelMapper, EmpresaRepository empresaRepository, CandidatoRepository candidatoRepository) {
         this.experienciaRepository = experienciaRepository;
         this.modelMapper = modelMapper;
+        this.empresaRepository = empresaRepository;
+        this.candidatoRepository = candidatoRepository;
     }
 
-    public ExperienciaDto criarExperiencia(ExperienciaDto experienciaDto) {
-        Experiencia experiencia = modelMapper.map(experienciaDto, Experiencia.class);
+    public ExperienciaDtoModif criarExperiencia(ExperienciaDtoModif experienciaDtoModif) {
+        Candidato candidato = candidatoRepository.findById(experienciaDtoModif.getIdCandidato())
+                .orElseThrow(() -> new IllegalArgumentException("Candidato não encontrado: " + experienciaDtoModif.getIdCandidato()));
+
+        Experiencia experiencia = modelMapper.map(experienciaDtoModif, Experiencia.class);
+        experiencia.setCandidato(candidato);
+
+        if (experienciaDtoModif.getEmpresa() != null) {
+            Empresa empresa = empresaRepository.findById(experienciaDtoModif.getEmpresa())
+                    .orElseThrow(() -> new IllegalArgumentException("Empresa não encontrada: " + experienciaDtoModif.getEmpresa()));
+
+            experiencia.setEmpresa(empresa);
+        }
+
         Experiencia novaExperiencia = experienciaRepository.save(experiencia);
-        return modelMapper.map(novaExperiencia, ExperienciaDto.class);
+        return modelMapper.map(novaExperiencia, ExperienciaDtoModif.class);
     }
 
     public ExperienciaDto alterarExperiencia(Integer id, ExperienciaDto experienciaDto) {
@@ -41,18 +63,20 @@ public class ExperienciaService {
         return modelMapper.map(experienciaAtualizada, ExperienciaDto.class);
     }
 
-    public List<ExperienciaDto> listarExperiencias() {
+    public List<ExperienciaDtoModif> listarExperiencias() {
         List<Experiencia> experiencias = experienciaRepository.findAll();
         return experiencias.stream()
-                .map(experiencia -> modelMapper.map(experiencia, ExperienciaDto.class))
+                .map(experiencia -> modelMapper.map(experiencia, ExperienciaDtoModif.class))
                 .collect(Collectors.toList());
     }
 
-    public ExperienciaDto buscarExperienciaPorId(Integer id) {
-        Experiencia experiencia = experienciaRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Experiência não encontrada"));
-        return modelMapper.map(experiencia, ExperienciaDto.class);
+    public List<ExperienciaDtoModif> buscarExperienciaPorIdCandidato(Integer idCandidato) {
+        List<Experiencia> experiencias = experienciaRepository.findByCandidatoId(idCandidato);
+        return experiencias.stream()
+                .map(experiencia -> modelMapper.map(experiencia, ExperienciaDtoModif.class))
+                .collect(Collectors.toList());
     }
+
 
     public void deletarExperiencia(Integer id) {
         Experiencia experiencia = experienciaRepository.findById(id)

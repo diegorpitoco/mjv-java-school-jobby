@@ -10,26 +10,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpresaService {
 
+    private EmpresaRepository empresaRepository;
+    private ModelMapper modelMapper;
+
     @Autowired
-    EmpresaRepository empresaRepository;
+    public EmpresaService(EmpresaRepository empresaRepository, ModelMapper modelMapper) {
+        this.empresaRepository = empresaRepository;
+        this.modelMapper = modelMapper;
+    }
 
     public EmpresaDto cadastrarEmpresa(EmpresaDto empresaDto) {
-        Empresa empresa = new Empresa();
-        BeanUtils.copyProperties(empresaDto, empresa, "id");
-        empresaRepository.save(empresa);
-        return empresaDto;
+        Empresa empresa = modelMapper.map(empresaDto, Empresa.class);
+        Empresa novaEmpresa = empresaRepository.save(empresa);
+        return modelMapper.map(novaEmpresa, EmpresaDto.class);
     }
 
-    public List<Empresa> listarEmpresas() {
-        return empresaRepository.findAll();
+    public List<EmpresaDto> listarEmpresas() {
+        List<Empresa> empresas = empresaRepository.findAll();
+        return empresas.stream()
+                .map(empresa -> modelMapper.map(empresa, EmpresaDto.class))
+                .collect(Collectors.toList());
     }
-    public Empresa buscarEmpresaId(Integer id) {
-        return empresaRepository.findById(id)
+    public EmpresaDto buscarEmpresaId(Integer id) {
+        Empresa empresa = empresaRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Empresa não encontrada"));
+        return modelMapper.map(empresa, EmpresaDto.class);
     }
     public boolean deletarEmpresa(Integer id) {
         Optional<Empresa> optionalEmpresa = empresaRepository.findById(id);
