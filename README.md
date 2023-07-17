@@ -68,15 +68,33 @@ Depois do BOOOM da World Wide Web, um dos maiores eventos de evolução na área
 
 <img src="https://sintaxe.netlify.app/assets/api.1fcb1c5c.jpg" width="500" />
 
-Com esta nova arquitetura a People Job em parceria com Digytal decidiram juntar forças para o desenvolvimento de uma plataforma centralizada de dados capaz de provê mecanimos de integração para a recepção e fornecimento de dados dos candidatos registrados em sua plataforma.
+Com esta nova arquitetura a People Job em parceria com HR decidiram juntar forças para o desenvolvimento de uma plataforma centralizada de dados capaz de provê mecanimos de integração para a recepção e fornecimento de dados dos candidatos registrados em sua plataforma.
 
 Dentre as novas funcionalidades que serão disponibilizadas pela plataforma, destacamos as mencionadas abaixo:
 
 <b>1.</b> Cadastro do candidato de forma online e em tempo real</br>
 <b>2.</b> Consulta dos candidatos existentes na base de dados</br>
 <b>3.</b> Consulta dos candidatos considerando critérios de busca</br>
-<b>4.</b> Upload e exibição da foto do perfil do candidato</br>
-<b>5.</b> Consulta de informações estratégicas dos candidatos</br>
+<b>.</b> Consulta de informações estratégicas dos candidatos</br>
+
+# Swagger
+
+Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
+
+Swagger é um framework para descrição, consumo e visualização de serviços RESTful. E seu grande objetivo é permitir que a documentação possa evoluir no mesmo ritmo da implementação, já que pode ser gerada automaticamente com base em anotações do código, gigantes da tecnologia como a Yelp e a Netflix já usam o Swagger nos seus produtos e projetos.
+
+Abaixo segue um pequeno vídeo da nossa api sendo utilizada no Swagger.
+
+![Web 1](https://github.com/emerge8/assets/blob/main/testeSwagger.gif)
+
+# Tecnologias Utilizadas
+ 
+- Java Development Kit (JDK) 19
+- Spring Boot 2.7.13
+- MySql
+- Postman
+- Swagger V3
+
 
 
 
