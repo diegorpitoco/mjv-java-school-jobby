@@ -7,10 +7,10 @@ import javax.persistence.*;
 @Embeddable
 public class Endereco {
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String cep;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String logradouro;
 
     private String numero;
@@ -19,7 +19,7 @@ public class Endereco {
 
     private String bairro;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
 

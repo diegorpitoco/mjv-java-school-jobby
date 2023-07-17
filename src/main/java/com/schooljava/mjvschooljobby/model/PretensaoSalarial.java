@@ -7,10 +7,10 @@ import javax.persistence.*;
 @Embeddable
 public class PretensaoSalarial {
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private Double valorMinimo;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private Double valorMaximo;
 
 }

@@ -8,6 +8,7 @@ import com.schooljava.mjvschooljobby.repository.CandidatoRepository;
 import com.schooljava.mjvschooljobby.repository.HabilidadeRepository;
 import com.schooljava.mjvschooljobby.repository.ProfissaoRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.schooljava.mjvschooljobby.dto.CandidatoDto;
 import org.springframework.stereotype.Service;
@@ -38,22 +39,17 @@ public class CandidatoService {
     }
 
 
+
     public CandidatoDto cadastrarCandidato(CandidatoDto candidatoDto) {
         Optional<Candidato> candidatoExistente = candidatoRepository.findByCpf(candidatoDto.getCpf());
-
+        Candidato candidato = new Candidato();
         if (candidatoExistente.isPresent()) {
             throw new IllegalArgumentException("Candidato já está cadastrado");
+        }else{
+            BeanUtils.copyProperties(candidatoDto, candidato, "id");
+            candidatoRepository.save(candidato);
         }
-
-        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
-        Profissao profissao = profissaoRepository.findById(candidatoDto.getProfissaoId())
-                .orElseThrow(() -> new IllegalArgumentException("Profissão não encontrada"));
-
-        candidato.setProfissao(profissao);
-        Candidato novoCandidato = candidatoRepository.save(candidato);
-
-        CandidatoDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoDto.class);
-        return novoCandidatoDto;
+        return candidatoDto;
     }
 
     public CandidatoDto alterarCandidato(Integer id, CandidatoDto candidatoDto) {
