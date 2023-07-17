@@ -1,11 +1,13 @@
 package com.schooljava.mjvschooljobby.controller;
 
+import com.schooljava.mjvschooljobby.dto.CandidatoCadastroDto;
 import com.schooljava.mjvschooljobby.dto.CandidatoDto;
 import com.schooljava.mjvschooljobby.service.CandidatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -18,8 +20,8 @@ public class CandidatoController {
     private CandidatoService candidatoService;
 
     @PostMapping("/novo-candidato")
-    public ResponseEntity<String> cadastrarCandidato(@RequestBody CandidatoDto candidatoDto) {
-        CandidatoDto novoCandidato = candidatoService.cadastrarCandidato(candidatoDto);
+    public ResponseEntity<String> cadastrarCandidato(@RequestBody CandidatoCadastroDto candidatoCadastroDto) {
+        CandidatoCadastroDto novoCandidato = candidatoService.cadastrarCandidato(candidatoCadastroDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso!");
     }
 

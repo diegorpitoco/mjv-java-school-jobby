@@ -1,6 +1,7 @@
 package com.schooljava.mjvschooljobby.service;
 
 
+import com.schooljava.mjvschooljobby.dto.CandidatoCadastroDto;
 import com.schooljava.mjvschooljobby.dto.EnderecoDto;
 import com.schooljava.mjvschooljobby.model.*;
 import com.schooljava.mjvschooljobby.repository.CandidatoRepository;
@@ -41,39 +42,21 @@ public class CandidatoService {
         this.modelMapper = modelMapper;
     }
 
-//    public CandidatoDto cadastrarCandidato(CandidatoDto candidatoDto) {
-//        Optional<Candidato> candidatoExistente = candidatoRepository.findByCpf(candidatoDto.getCpf());
-//
-//        if (candidatoExistente.isPresent()) {
-//            throw new IllegalArgumentException("Candidato já está cadastrado");
-//        }
-//
-//        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
-//        Profissao profissao = profissaoRepository.findById(candidatoDto.getProfissaoId())
-//                .orElseThrow(() -> new IllegalArgumentException("Profissão não encontrada"));
-//
-//        candidato.setProfissao(profissao);
-//        Candidato novoCandidato = candidatoRepository.save(candidato);
-//
-//        CandidatoDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoDto.class);
-//        return novoCandidatoDto;
-//    }
-
-    public CandidatoDto cadastrarCandidato(CandidatoDto candidatoDto) {
-        Optional<Candidato> candidatoExistente = candidatoRepository.findByCpf(candidatoDto.getCpf());
+    public CandidatoCadastroDto cadastrarCandidato(CandidatoCadastroDto candidatoCadastroDto) {
+        Optional<Candidato> candidatoExistente = candidatoRepository.findByCpf(candidatoCadastroDto.getCpf());
 
         if (candidatoExistente.isPresent()) {
             throw new IllegalArgumentException("Candidato já está cadastrado");
         }
 
-        Candidato candidato = modelMapper.map(candidatoDto, Candidato.class);
-        Profissao profissao = profissaoRepository.findById(candidatoDto.getProfissaoId())
+        Candidato candidato = modelMapper.map(candidatoCadastroDto, Candidato.class);
+        Profissao profissao = profissaoRepository.findById(candidatoCadastroDto.getProfissaoId())
                 .orElseThrow(() -> new IllegalArgumentException("Profissão não encontrada"));
 
         candidato.setProfissao(profissao);
 
         // Verificação do ID da cidade
-        EnderecoDto enderecoDto = candidatoDto.getEndereco();
+        EnderecoDto enderecoDto = candidatoCadastroDto.getEndereco();
         Integer cidadeId = enderecoDto.getCidade();
         Cidade cidade = cidadeRepository.findById(cidadeId)
                 .orElseThrow(() -> new IllegalArgumentException("Cidade não encontrada"));
@@ -85,7 +68,7 @@ public class CandidatoService {
 
         Candidato novoCandidato = candidatoRepository.save(candidato);
 
-        CandidatoDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoDto.class);
+        CandidatoCadastroDto novoCandidatoDto = modelMapper.map(novoCandidato, CandidatoCadastroDto.class);
         return novoCandidatoDto;
     }
 
