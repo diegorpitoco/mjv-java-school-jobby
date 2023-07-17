@@ -45,7 +45,7 @@ Este projeto contempla a elaboração de um programa simples onde é possível q
 # Especificações
 Dos requisitos apresentados à nossa fábrica, a mais relevante foi a necessidade de normalizar o nosso modelo de dados que antes continha uma estrutura de registros com informações redundantes e com crescimento exponencial da sua necessidade de armazenamento dos dados.
 
-<img src="https://sintaxe.netlify.app/assets/cadastro_v2.bb266c22.jpg" width="500" />
+<img src="https://github.com/emerge8/assets/blob/main/hrregister.png?raw=true" width="500" />
 
 <b>1.</b> Remodelar toda a estrutura de banco de forma que atenda o diagrama apresentado acima</br>
 <b>2.</b> Realizar cadastros prévios para a inserção dos candidatos como: Profissões, Cidades e Empresas</br>
