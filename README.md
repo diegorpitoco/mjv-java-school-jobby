@@ -2,7 +2,7 @@
 
 E como mentor do nosso Projeto tivemos o Professor [Gleydson](https://www.linkedin.com/in/glysns/ "Linkdin").
 
-# HR Resources Soluções Tecnológicas </br> 
+# HRRegister Soluções Tecnológicas </br> 
 
 Somos uma empresa de tecnologia voltada a soluções para o processo de Recutamento e Seleção de Profissionais de TI. Segue os componestes do nosso time Incrível de desenvolvedores.</br> 
 [Alane Kerolaine](https://www.linkedin.com/in/alane-kerolaine-g-l-carvalho/ "Linkedin") </br>
