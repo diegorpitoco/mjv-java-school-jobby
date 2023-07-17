@@ -1,7 +1,6 @@
 package com.schooljava.mjvschooljobby.controller;
 
 import com.schooljava.mjvschooljobby.dto.CandidatoDto;
-import com.schooljava.mjvschooljobby.model.Candidato;
 import com.schooljava.mjvschooljobby.service.CandidatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,32 +17,32 @@ public class CandidatoController {
     @Autowired
     private CandidatoService candidatoService;
 
-    @PostMapping("/novo")
+    @PostMapping("/novo-candidato")
     public ResponseEntity<String> cadastrarCandidato(@RequestBody CandidatoDto candidatoDto) {
         CandidatoDto novoCandidato = candidatoService.cadastrarCandidato(candidatoDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso!");
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/editar-candidato/{id}")
     public ResponseEntity<CandidatoDto> alterarCandidato(@PathVariable Integer id, @RequestBody CandidatoDto candidatoDto) {
         CandidatoDto candidatoAlterado = candidatoService.alterarCandidato(id, candidatoDto);
         return ResponseEntity.ok(candidatoAlterado);
     }
 
 
-    @GetMapping("/lista-candidatos")
+    @GetMapping("/listar-candidatos")
     public ResponseEntity<List<CandidatoDto>> listarCandidatos() {
         List<CandidatoDto> candidatos = candidatoService.listarCandidatos();
         return ResponseEntity.ok(candidatos);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar-candidato/{id}")
     public ResponseEntity<CandidatoDto> buscarCandidatoPorId(@PathVariable Integer id) {
         CandidatoDto candidato = candidatoService.buscarCandidatoPorId(id);
         return ResponseEntity.ok(candidato);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar-candidato/{id}")
     public ResponseEntity<Void> deletarCandidato(@PathVariable Integer id) {
         candidatoService.deletarCandidato(id);
         return ResponseEntity.noContent().build();

@@ -20,31 +20,31 @@ public class HabilidadeController {
         this.habilidadeService = habilidadeService;
     }
 
-    @PostMapping("/novo")
+    @PostMapping("/nova-habilidade")
     public ResponseEntity<HabilidadeDto> criarHabilidade(@RequestBody HabilidadeDto habilidadeDto) {
         HabilidadeDto novaHabilidade = habilidadeService.criarHabilidade(habilidadeDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(novaHabilidade);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/editar-habilidade/{id}")
     public ResponseEntity<HabilidadeDto> alterarHabilidade(@PathVariable Integer id, @RequestBody HabilidadeDto habilidadeDto) {
         HabilidadeDto habilidadeAlterada = habilidadeService.alterarHabilidade(id, habilidadeDto);
         return ResponseEntity.ok(habilidadeAlterada);
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/listar-habilidades")
     public ResponseEntity<List<HabilidadeDto>> listarHabilidades() {
         List<HabilidadeDto> habilidades = habilidadeService.listarHabilidades();
         return ResponseEntity.ok(habilidades);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar-habilidade/{id}")
     public ResponseEntity<HabilidadeDto> buscarHabilidadePorId(@PathVariable Integer id) {
         HabilidadeDto habilidade = habilidadeService.buscarHabilidadePorId(id);
         return ResponseEntity.ok(habilidade);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar-habilidade/{id}")
     public ResponseEntity<Void> deletarHabilidade(@PathVariable Integer id) {
         habilidadeService.deletarHabilidade(id);
         return ResponseEntity.noContent().build();

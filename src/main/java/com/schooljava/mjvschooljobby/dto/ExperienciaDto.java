@@ -12,7 +12,7 @@ public class ExperienciaDto {
     private boolean empregoAtual;
     private LocalDate dataContratacao;
     private LocalDate dataDesligamento;
-    private EmpresaDto empresa;
+    private Integer empresa;
     private RegimeContratacao regimeContratacao;
 
 }
